@@ -24,14 +24,17 @@ albuns = df_filtered["Album"].value_counts().index
 album = st.sidebar.selectbox("Album", albuns)
 
 df_filtered2 = df[df["Album"] == album]
-display = st.checkbox('Display')
-if display:
-    st.bar_chart(df_filtered2["Stream"])
 
-st.bar_chart(df_filtered["Stream"])
+col1,col2 = st.columns([0.7, 0.3])
+
+col1.bar_chart(df_filtered2["Stream"])
+col2.line_chart(df_filtered2["Danceability"])
 
 
-display = st.checkbox('Exibir qtd de streams por musicas do artista')
+st.write(artist)
+
+
+
 
 
 
